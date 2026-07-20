@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #3b3a8a;
+    color: #1a1c29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+.card {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.end-card {
+    background-color: #5d61fb;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #0b132b;
+    margin-bottom: 120px;
+    line-height: 1.2;
+}
+.subtitle {
+    font-size: 0.9rem;
+    color: #5d61fb;
+    margin-bottom: 20px;
+}
+.config-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+select {
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    flex: 1;
+}
+.btn-container.right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    background-color: #5d61fb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-btn:hover {
+    background-color: #4a4edf;
+}
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #5d61fb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5d61fb;
+    font-weight: bold;
+}
+.icon-placeholder::after {
+    content: 'Q';
+}
+.question-indicator {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0b132b;
+}
+.quiz-subtitle {
+    font-size: 0.75rem;
+    color: #666;
+}
+.home-btn {
+    width: 28px;
+    height: 28px;
+    background-color: #5d61fb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.question-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+.option-btn {
+    text-align: left;
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.option-btn:hover {
+    border-color: #5d61fb;
+}
+.option-btn.selected {
+    border-color: #5d61fb;
+    color: #5d61fb;
+}
+.option-btn.correct {
+    border-color: #2e7d32;
+    color: #2e7d32;
+}
+.option-btn.wrong {
+    border-color: #c62828;
+    color: #c62828;
+}
+.feedback-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    min-height: 40px;
+}
+.feedback-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.feedback-text.correct {
+    color: #2e7d32;
+}
+.feedback-text.wrong {
+    color: #c62828;
+}
+.blue-btn {
+    background-color: #8993f9;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.blue-btn:hover {
+    background-color: #7380f7;
+}
+.end-icon {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #5d61fb;
+    border-radius: 4px;
+}
+.end-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.end-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+.mt-4 {
+    margin-top: 30px;
+}

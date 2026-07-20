@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Sports Quiz</title>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+     <div class="container">
+         <div id="start-screen" class="card">
+            <h1 class="main-title">Basic Quiz</h1>
+          <p class="subtitle">Select your preferences to generate a custom sports quiz using AI.</p>
+             <div class="config-form">
+              <select id="sport-select">
+                     <option value="Cricket">Cricket</option>
+                    <option value="Football">Football</option>
+                    <option value="Basketball">Basketball</option>
+                     <option value="Tennis">Tennis</option>
+                     <option value="Badminton">Badminton</option>
+                      <option value="Formula 1">Formula 1</option>
+                    <option value="Olympics">Olympics</option>
+                </select>
+                <select id="difficulty-select">
+                    <option value="Easy">Easy</option>
+                  <option value="Medium" selected>Medium</option>
+                      <option value="Hard">Hard</option>
+                 </select>
+                <select id="num-questions">
+                      <option value="3">3 Questions</option>
+                   <option value="5" selected>5 Questions</option>
+                      <option value="10">10 Questions</option>
+                 </select>
+           </div>
+              <div class="btn-container right">
+                  <button id="generate-btn" class="icon-btn" onclick="generateQuiz()">&gt;</button>
+           </div>
+         </div>
+
+          <div id="loading-screen" class="card" style="display: none;">
+              <h2 class="question-title">Generating Quiz</h2>
+              <p class="subtitle">Please wait while the AI agent gathers information.</p>
+       </div>
+
+      <div id="quiz-screen" class="card" style="display: none;">
+           <div class="quiz-header">
+                <div class="header-left">
+                     <div class="icon-placeholder"></div>
+                   <div>
+                      <h2 id="question-indicator" class="question-indicator">Question 1/5</h2>
+                      <p id="quiz-topic-subtitle" class="quiz-subtitle">Contextualize your topic</p>
+                      </div>
+              </div>
+                 <button class="home-btn" onclick="resetQuiz()">H</button>
+           </div>
+
+           <h3 id="question-text" class="question-text"></h3>
+            
+            <div id="options-container" class="options-container">
+              </div>
+
+            <div class="feedback-container">
+                 <p id="feedback-text" class="feedback-text"></p>
+                  <button id="next-btn" class="blue-btn" onclick="nextQuestion()" style="display:none;">ENVIAR</button>
+            </div>
+         </div>
+
+       <div id="end-screen" class="card end-card" style="display: none;">
+             <div class="end-icon">Q</div>
+          <h1 class="end-title">End of the quiz!</h1>
+            <p id="final-score-text" class="end-subtitle"></p>
+            <button class="blue-btn mt-4" onclick="resetQuiz()">Play Again</button>
+       </div>
+   </div>
+     <script src="/static/js/app.js"></script>
+</body>
+</html>

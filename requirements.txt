@@ -1,0 +1,49 @@
+# ============================================================================
+# AI-Powered Sports Quiz Generation Agent
+# Requirements File
+# ============================================================================
+
+# --- Web Framework ---
+# Flask serves the dashboard UI and exposes the REST API endpoints.
+flask>=3.0.0
+
+# --- Environment Management ---
+# Loads .env file variables (like GOOGLE_API_KEY) into os.environ securely.
+python-dotenv>=1.0.0
+
+# --- LangChain Core ---
+# Core primitives: document types, text splitters, prompt templates.
+langchain>=0.3.0
+
+# --- LangChain Integrations ---
+# Google Gemini LLM integration (uses google-genai SDK under the hood).
+langchain-google-genai>=2.0.0
+
+# ChromaDB vector store integration for LangChain.
+langchain-chroma>=0.2.0
+
+# HuggingFace embeddings integration (runs models locally via sentence-transformers).
+langchain-huggingface>=0.1.0
+
+# Community tools including DuckDuckGo search wrapper.
+langchain-community>=0.3.0
+
+# --- Vector Database ---
+# Local vector database for persistent embedding storage on disk.
+chromadb>=0.5.0
+
+# --- Web Search ---
+# Programmatic DuckDuckGo search — free, no API key required.
+duckduckgo-search>=6.0.0
+
+# --- Document Processing ---
+# PDF text extraction for ingesting sports knowledge base documents.
+pypdf>=4.0.0
+
+# --- Embedding Model ---
+# Powers the HuggingFace all-MiniLM-L6-v2 embedding model locally.
+sentence-transformers>=3.0.0
+
+# --- Utilities ---
+# CORS support for Flask API (cross-origin requests from frontend).
+flask-cors>=4.0.0

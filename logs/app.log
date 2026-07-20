@@ -1,0 +1,425 @@
+2026-07-20 06:24:52,128 │ INFO     │ __main__ │ ingest_documents:79 │ ============================================================
+2026-07-20 06:24:52,128 │ INFO     │ __main__ │ ingest_documents:80 │ STARTING DOCUMENT INGESTION PIPELINE
+2026-07-20 06:24:52,128 │ INFO     │ __main__ │ ingest_documents:81 │ ============================================================
+2026-07-20 06:24:52,129 │ INFO     │ __main__ │ ingest_documents:84 │ Step 1/5: Loading documents from data/ directory...
+2026-07-20 06:24:52,129 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Badminton from badminton/
+2026-07-20 06:24:52,129 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: BWF_History.txt (2841 chars)
+2026-07-20 06:24:52,129 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Basketball from basketball/
+2026-07-20 06:24:52,130 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: NBA_History.txt (4370 chars)
+2026-07-20 06:24:52,130 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Cricket from cricket/
+2026-07-20 06:24:52,130 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: Cricket_World_Cup_History.txt (5266 chars)
+2026-07-20 06:24:52,130 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Football from football/
+2026-07-20 06:24:52,131 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: FIFA_History.txt (4769 chars)
+2026-07-20 06:24:52,131 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Formula 1 from formula1/
+2026-07-20 06:24:52,131 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: Formula1_History.txt (3608 chars)
+2026-07-20 06:24:52,131 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Olympics from olympics/
+2026-07-20 06:24:52,132 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: Olympic_History.txt (4502 chars)
+2026-07-20 06:24:52,132 │ INFO     │ src.loaders.document_loader │ load_all_documents:83 │ Loading documents for sport: Tennis from tennis/
+2026-07-20 06:24:52,132 │ INFO     │ src.loaders.document_loader │ _load_text:169 │   ✓ Loaded TXT: Grand_Slam_History.txt (3527 chars)
+2026-07-20 06:24:52,132 │ INFO     │ src.loaders.document_loader │ load_all_documents:96 │ Total documents loaded: 7 across all sports
+2026-07-20 06:24:52,132 │ INFO     │ __main__ │ ingest_documents:91 │   → 7 raw documents loaded
+2026-07-20 06:24:52,132 │ INFO     │ __main__ │ ingest_documents:94 │ Step 2/5: Cleaning extracted text...
+2026-07-20 06:24:52,134 │ INFO     │ src.loaders.cleaner │ clean_documents:74 │ Cleaned 7 documents → 7 retained, 0 removed (too short after cleaning)
+2026-07-20 06:24:52,134 │ INFO     │ __main__ │ ingest_documents:96 │   → 7 documents after cleaning
+2026-07-20 06:24:52,134 │ INFO     │ __main__ │ ingest_documents:99 │ Step 3/5: Splitting documents into chunks...
+2026-07-20 06:24:52,134 │ INFO     │ __main__ │ ingest_documents:101 │   → 40 chunks created
+2026-07-20 06:24:52,134 │ INFO     │ __main__ │ ingest_documents:104 │ Step 4/5: Enriching chunk metadata...
+2026-07-20 06:24:52,136 │ INFO     │ __main__ │ _enrich_metadata:179 │   Enriched 40 chunks with metadata
+2026-07-20 06:24:52,136 │ INFO     │ __main__ │ ingest_documents:108 │ Step 5/5: Generating embeddings and storing in ChromaDB...
+2026-07-20 06:24:52,136 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:24:52,137 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:24:59,387 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:25:01,179 │ INFO     │ __main__ │ _store_in_chromadb:246 │   ✓ Stored 40 chunks in ChromaDB collection 'sports_knowledge'
+2026-07-20 06:25:01,179 │ INFO     │ __main__ │ ingest_documents:111 │ ============================================================
+2026-07-20 06:25:01,179 │ INFO     │ __main__ │ ingest_documents:112 │ INGESTION COMPLETE: 40 chunks stored in ChromaDB
+2026-07-20 06:25:01,179 │ INFO     │ __main__ │ ingest_documents:113 │ ChromaDB path: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:25:01,179 │ INFO     │ __main__ │ ingest_documents:114 │ ============================================================
+2026-07-20 06:28:54,569 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:28:54,569 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:28:54,569 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 06:28:54,570 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:28:54,570 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:29:29,329 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:29:29,329 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:29:29,329 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 06:29:29,329 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:29:29,329 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:29:36,418 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:29:36,418 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:29:36,418 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 06:29:36,418 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:29:36,418 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:29:43,123 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Hard / 5 questions
+2026-07-20 06:29:43,164 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-2.5-flash
+2026-07-20 06:29:43,164 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 10 ChromaDB queries + 7 web queries
+2026-07-20 06:29:43,164 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results', 'Basketball controversies and unusual events', 'Basketball lesser known facts and trivia', 'Basketball technical strategies and tactics']
+2026-07-20 06:29:43,164 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings', 'Basketball recent records broken and milestones']
+2026-07-20 06:29:43,164 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:29:43,165 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:29:48,659 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:29:48,786 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 06:29:49,015 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 10 queries
+2026-07-20 06:29:49,015 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:hard:chromadb (TTL: 300s)
+2026-07-20 06:29:49,015 │ WARNING  │ src.retrieval.web_search │ search_web:59 │ Failed to initialize DuckDuckGo search: Could not import ddgs python package. Please install it with `pip install -U ddgs`.
+2026-07-20 06:29:49,015 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:hard:web (TTL: 300s)
+2026-07-20 06:29:49,015 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 0 web = 6 total chunks
+2026-07-20 06:29:49,015 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 6 → 5 chunks
+2026-07-20 06:29:51,175 │ WARNING  │ src.agent.agent │ _generate_with_retries:272 │ Max retries reached, returning best attempt
+2026-07-20 06:29:51,176 │ ERROR    │ src.agent.agent │ process_request:149 │ Agent pipeline failed: cannot access local variable 'quiz_data' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/thoufeq/Desktop/Sports Quiz/src/agent/agent.py", line 114, in process_request
+    quiz_data = self._generate_with_retries(
+        sport, difficulty, num_questions,
+        reranked_context, merged.get("context_text", ""),
+        activity_log
+    )
+  File "/Users/thoufeq/Desktop/Sports Quiz/src/agent/agent.py", line 273, in _generate_with_retries
+    return quiz_data if quiz_data else {"questions": []}
+                        ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'quiz_data' where it is not associated with a value
+2026-07-20 06:29:57,330 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Hard / 5 questions
+2026-07-20 06:29:57,331 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 10 ChromaDB queries + 7 web queries
+2026-07-20 06:29:57,331 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results', 'Basketball controversies and unusual events', 'Basketball lesser known facts and trivia', 'Basketball technical strategies and tactics']
+2026-07-20 06:29:57,331 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings', 'Basketball recent records broken and milestones']
+2026-07-20 06:29:57,331 │ INFO     │ src.retrieval.cache │ get:26 │ Cache HIT: basketball:hard:chromadb
+2026-07-20 06:29:57,331 │ INFO     │ src.retrieval.cache │ get:26 │ Cache HIT: basketball:hard:web
+2026-07-20 06:29:57,331 │ WARNING  │ src.retrieval.web_search │ search_web:59 │ Failed to initialize DuckDuckGo search: Could not import ddgs python package. Please install it with `pip install -U ddgs`.
+2026-07-20 06:29:57,332 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:hard:web (TTL: 300s)
+2026-07-20 06:29:57,332 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 0 web = 6 total chunks
+2026-07-20 06:29:57,332 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 6 → 5 chunks
+2026-07-20 06:29:59,160 │ WARNING  │ src.agent.agent │ _generate_with_retries:272 │ Max retries reached, returning best attempt
+2026-07-20 06:29:59,161 │ ERROR    │ src.agent.agent │ process_request:149 │ Agent pipeline failed: cannot access local variable 'quiz_data' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/thoufeq/Desktop/Sports Quiz/src/agent/agent.py", line 114, in process_request
+    quiz_data = self._generate_with_retries(
+        sport, difficulty, num_questions,
+        reranked_context, merged.get("context_text", ""),
+        activity_log
+    )
+  File "/Users/thoufeq/Desktop/Sports Quiz/src/agent/agent.py", line 273, in _generate_with_retries
+    return quiz_data if quiz_data else {"questions": []}
+                        ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'quiz_data' where it is not associated with a value
+2026-07-20 06:31:22,802 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:31:22,802 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:31:22,802 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 06:31:22,802 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:31:22,802 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:31:41,831 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Hard / 5 questions
+2026-07-20 06:31:41,882 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-2.5-flash
+2026-07-20 06:31:41,882 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 10 ChromaDB queries + 7 web queries
+2026-07-20 06:31:41,882 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results', 'Basketball controversies and unusual events', 'Basketball lesser known facts and trivia', 'Basketball technical strategies and tactics']
+2026-07-20 06:31:41,882 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings', 'Basketball recent records broken and milestones']
+2026-07-20 06:31:41,882 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:31:41,882 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:31:47,106 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:31:47,248 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 06:31:47,463 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 10 queries
+2026-07-20 06:31:47,464 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:hard:chromadb (TTL: 300s)
+2026-07-20 06:31:47,464 │ WARNING  │ src.retrieval.web_search │ search_web:59 │ Failed to initialize DuckDuckGo search: Could not import ddgs python package. Please install it with `pip install -U ddgs`.
+2026-07-20 06:31:47,464 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:hard:web (TTL: 300s)
+2026-07-20 06:31:47,464 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 0 web = 6 total chunks
+2026-07-20 06:31:47,464 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 6 → 5 chunks
+2026-07-20 06:31:49,652 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 06:31:49,652 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 7770ms
+2026-07-20 06:33:03,614 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:33:03,614 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:33:03,615 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-1.5-flash
+2026-07-20 06:33:03,615 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:33:03,615 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:34:54,553 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 06:34:54,604 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-1.5-flash
+2026-07-20 06:34:54,604 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 06:34:54,604 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 06:34:54,604 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 06:34:54,604 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:34:54,604 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:34:59,717 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:34:59,847 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 06:35:00,014 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 06:35:00,014 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 06:35:00,014 │ WARNING  │ src.retrieval.web_search │ search_web:59 │ Failed to initialize DuckDuckGo search: Could not import ddgs python package. Please install it with `pip install -U ddgs`.
+2026-07-20 06:35:00,014 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 06:35:00,014 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 0 web = 6 total chunks
+2026-07-20 06:35:00,015 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 6 → 5 chunks
+2026-07-20 06:35:00,604 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 06:35:00,604 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 6000ms
+2026-07-20 06:40:07,389 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:40:07,389 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:40:07,389 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 06:40:07,389 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:40:07,389 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:40:13,862 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 06:40:13,898 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-2.5-flash
+2026-07-20 06:40:13,898 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 06:40:13,898 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 06:40:13,898 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 06:40:13,899 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:40:13,899 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:40:19,343 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:40:19,503 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 06:40:19,698 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 06:40:19,698 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 06:40:19,698 │ WARNING  │ src.retrieval.web_search │ search_web:59 │ Failed to initialize DuckDuckGo search: Could not import ddgs python package. Please install it with `pip install -U ddgs`.
+2026-07-20 06:40:19,698 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 06:40:19,699 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 0 web = 6 total chunks
+2026-07-20 06:40:19,699 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 6 → 5 chunks
+2026-07-20 06:40:21,962 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 06:40:21,962 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 8064ms
+2026-07-20 06:41:07,206 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 06:41:07,206 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 06:41:07,206 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-1.5-flash
+2026-07-20 06:41:07,206 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 06:41:07,206 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 06:42:09,198 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Cricket / Medium / 5 questions
+2026-07-20 06:42:09,249 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-1.5-flash
+2026-07-20 06:42:09,250 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Cricket knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 06:42:09,250 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Cricket history and origins', 'Cricket major tournaments and championships', 'Cricket legendary players and achievements', 'Cricket rules and regulations', 'Cricket records and statistics', 'Cricket historic matches and memorable moments', 'Cricket championship winners and results']
+2026-07-20 06:42:09,250 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['latest ICC cricket rankings 2026', 'cricket world cup recent winners results', 'IPL latest season champions', 'Cricket latest news and updates 2024 2025 2026', 'Cricket recent champions and winners', 'Cricket current world rankings']
+2026-07-20 06:42:09,250 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 06:42:09,250 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 06:42:14,541 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 06:42:14,674 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 06:42:14,830 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Cricket' from 7 queries
+2026-07-20 06:42:14,830 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: cricket:medium:chromadb (TTL: 300s)
+2026-07-20 06:42:25,868 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 06:42:25,869 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: cricket:medium:web (TTL: 300s)
+2026-07-20 06:42:25,869 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 6 web = 12 total chunks
+2026-07-20 06:42:25,871 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 12 → 5 chunks
+2026-07-20 06:42:26,445 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 06:42:26,445 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 17196ms
+2026-07-20 07:00:17,228 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 07:00:17,229 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:00:17,229 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 07:00:17,229 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 07:00:17,506 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 07:00:17,506 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 07:00:30,820 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 07:00:30,821 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 07:00:30,821 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 6 web = 12 total chunks
+2026-07-20 07:00:30,822 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 12 → 5 chunks
+2026-07-20 07:00:31,448 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 07:00:31,448 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 14220ms
+2026-07-20 07:00:53,418 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:00:53,418 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:00:53,418 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-1.5-flash
+2026-07-20 07:00:53,418 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:00:53,418 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:01:00,432 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:01:00,432 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:01:00,432 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-1.5-flash
+2026-07-20 07:01:00,432 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:01:00,432 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:01:09,181 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 07:01:09,234 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-1.5-flash
+2026-07-20 07:01:09,235 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:01:09,235 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 07:01:09,235 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 07:01:09,235 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 07:01:09,235 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 07:01:14,434 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 07:01:14,558 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 07:01:14,719 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 07:01:14,719 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 07:01:26,222 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 07:01:26,223 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 07:01:26,223 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 6 web = 12 total chunks
+2026-07-20 07:01:26,225 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 12 → 5 chunks
+2026-07-20 07:01:26,810 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 07:01:26,810 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 17576ms
+2026-07-20 07:03:34,060 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:03:34,060 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:03:34,060 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 07:03:34,060 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:03:34,061 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:05:09,758 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:05:09,758 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:05:09,759 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 07:05:09,759 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:05:09,759 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:06:10,959 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:06:10,959 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:06:10,959 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 07:06:10,959 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:06:10,959 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:07:34,287 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:07:34,287 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:07:34,287 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 07:07:34,287 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:07:34,287 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:07:41,253 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:07:41,253 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:07:41,253 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-2.5-flash
+2026-07-20 07:07:41,253 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:07:41,253 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:07:56,926 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 07:07:56,988 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-2.5-flash
+2026-07-20 07:07:56,988 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:07:56,988 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 07:07:56,988 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 07:07:56,988 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 07:07:56,988 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 07:08:02,340 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 07:08:02,491 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 07:08:02,669 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 07:08:02,669 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 07:08:15,811 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 07:08:15,811 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 07:08:15,811 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 6 web = 12 total chunks
+2026-07-20 07:08:15,813 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 12 → 5 chunks
+2026-07-20 07:08:17,709 │ WARNING  │ src.agent.agent │ _generate_with_retries:273 │ Max retries reached, returning best attempt
+2026-07-20 07:08:17,711 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 20723ms
+2026-07-20 07:10:10,853 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:10:10,853 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:10:10,853 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:10:10,853 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:10:10,853 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:11:16,706 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:11:16,706 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:11:16,706 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:11:16,706 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:11:16,706 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:11:23,643 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:11:23,643 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:11:23,643 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:11:23,643 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:11:23,643 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:11:35,996 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Basketball / Medium / 5 questions
+2026-07-20 07:11:36,045 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-3.5-flash
+2026-07-20 07:11:36,045 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Basketball knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:11:36,045 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Basketball history and origins', 'Basketball major tournaments and championships', 'Basketball legendary players and achievements', 'Basketball rules and regulations', 'Basketball records and statistics', 'Basketball historic matches and memorable moments', 'Basketball championship winners and results']
+2026-07-20 07:11:36,045 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['NBA championship latest winner 2026', 'NBA MVP latest season', 'FIBA basketball world cup results', 'Basketball latest news and updates 2024 2025 2026', 'Basketball recent champions and winners', 'Basketball current world rankings']
+2026-07-20 07:11:36,045 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 07:11:36,045 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 07:11:41,269 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 07:11:41,400 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 07:11:41,566 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 6 unique chunks for 'Basketball' from 7 queries
+2026-07-20 07:11:41,566 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:chromadb (TTL: 300s)
+2026-07-20 07:11:55,296 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 07:11:55,296 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: basketball:medium:web (TTL: 300s)
+2026-07-20 07:11:55,296 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 6 historical + 6 web = 12 total chunks
+2026-07-20 07:11:55,298 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 12 → 5 chunks
+2026-07-20 07:13:17,417 │ INFO     │ src.agent.fact_checker │ check_quiz:65 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:13:17,417 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 101374ms
+2026-07-20 07:22:30,173 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Formula 1 / Medium / 5 questions
+2026-07-20 07:22:30,175 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Formula 1 knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:22:30,175 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Formula 1 history and origins', 'Formula 1 major tournaments and championships', 'Formula 1 legendary players and achievements', 'Formula 1 rules and regulations', 'Formula 1 records and statistics', 'Formula 1 historic matches and memorable moments', 'Formula 1 championship winners and results']
+2026-07-20 07:22:30,175 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['Formula 1 world championship latest standings 2026', 'F1 latest race winner Grand Prix', 'Formula 1 driver constructor championship results', 'Formula 1 latest news and updates 2024 2025 2026', 'Formula 1 recent champions and winners', 'Formula 1 current world rankings']
+2026-07-20 07:22:30,315 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 5 unique chunks for 'Formula 1' from 7 queries
+2026-07-20 07:22:30,316 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: formula 1:medium:chromadb (TTL: 300s)
+2026-07-20 07:22:42,863 │ INFO     │ src.retrieval.web_search │ search_web:84 │ Web search returned 6 results from 6 queries
+2026-07-20 07:22:42,864 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: formula 1:medium:web (TTL: 300s)
+2026-07-20 07:22:42,864 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 5 historical + 6 web = 11 total chunks
+2026-07-20 07:22:42,864 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 11 → 5 chunks
+2026-07-20 07:22:56,215 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:22:56,215 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:22:56,215 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:22:56,215 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:22:56,215 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:23:29,209 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:23:29,210 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:23:29,210 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:23:29,210 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:23:29,210 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:23:36,239 │ INFO     │ __main__ │ create_app:28 │ ==================================================
+2026-07-20 07:23:36,239 │ INFO     │ __main__ │ create_app:29 │   Sports Quiz Agent Started
+2026-07-20 07:23:36,239 │ INFO     │ __main__ │ create_app:30 │   Model: gemini-3.5-flash
+2026-07-20 07:23:36,239 │ INFO     │ __main__ │ create_app:31 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:23:36,239 │ INFO     │ __main__ │ create_app:32 │ ==================================================
+2026-07-20 07:23:40,412 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Formula 1 / Medium / 5 questions
+2026-07-20 07:23:40,457 │ INFO     │ src.agent.agent │ __init__:55 │ QuizAgent initialized with model: gemini-3.5-flash
+2026-07-20 07:23:40,457 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Formula 1 knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:23:40,457 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Formula 1 history and origins', 'Formula 1 major tournaments and championships', 'Formula 1 legendary players and achievements', 'Formula 1 rules and regulations', 'Formula 1 records and statistics', 'Formula 1 historic matches and memorable moments', 'Formula 1 championship winners and results']
+2026-07-20 07:23:40,458 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['Formula 1 world championship latest standings 2026', 'F1 latest race winner Grand Prix', 'Formula 1 driver constructor championship results', 'Formula 1 latest news and updates 2024 2025 2026', 'Formula 1 recent champions and winners', 'Formula 1 current world rankings']
+2026-07-20 07:23:40,458 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:67 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 07:23:40,458 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:68 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 07:23:45,570 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:78 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 07:23:45,704 │ INFO     │ src.embeddings.ingest │ get_vector_store:281 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 07:23:45,871 │ INFO     │ src.retrieval.retriever │ retrieve_context:100 │ Retrieved 5 unique chunks for 'Formula 1' from 7 queries
+2026-07-20 07:23:45,871 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: formula 1:medium:chromadb (TTL: 300s)
+2026-07-20 07:23:49,765 │ INFO     │ src.retrieval.web_search │ search_web:90 │ Web search returned 6 results from 6 queries
+2026-07-20 07:23:49,766 │ DEBUG    │ src.retrieval.cache │ put:39 │ Cache SET: formula 1:medium:web (TTL: 300s)
+2026-07-20 07:23:49,766 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 5 historical + 6 web = 11 total chunks
+2026-07-20 07:23:49,767 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 11 → 5 chunks
+2026-07-20 07:24:05,005 │ INFO     │ src.agent.fact_checker │ check_quiz:65 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:24:05,006 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 24549ms
+2026-07-20 07:24:23,556 │ INFO     │ src.api.routes │ generate_quiz:78 │ Quiz request: Formula 1 / Medium / 5 questions
+2026-07-20 07:24:23,557 │ INFO     │ src.retrieval.query_planner │ create_query_plan:107 │ Query Plan created: Retrieving Formula 1 knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:24:23,557 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:108 │   DB queries: ['Formula 1 history and origins', 'Formula 1 major tournaments and championships', 'Formula 1 legendary players and achievements', 'Formula 1 rules and regulations', 'Formula 1 records and statistics', 'Formula 1 historic matches and memorable moments', 'Formula 1 championship winners and results']
+2026-07-20 07:24:23,558 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:109 │   Web queries: ['Formula 1 world championship latest standings 2026', 'F1 latest race winner Grand Prix', 'Formula 1 driver constructor championship results', 'Formula 1 latest news and updates 2024 2025 2026', 'Formula 1 recent champions and winners', 'Formula 1 current world rankings']
+2026-07-20 07:24:23,558 │ INFO     │ src.retrieval.cache │ get:26 │ Cache HIT: formula 1:medium:chromadb
+2026-07-20 07:24:23,558 │ INFO     │ src.retrieval.cache │ get:26 │ Cache HIT: formula 1:medium:web
+2026-07-20 07:24:23,558 │ INFO     │ src.retrieval.context_merger │ merge_contexts:81 │ Context merged: 5 historical + 6 web = 11 total chunks
+2026-07-20 07:24:23,559 │ INFO     │ src.retrieval.reranker │ rerank:33 │ Reranked 11 → 5 chunks
+2026-07-20 07:24:40,893 │ INFO     │ src.agent.fact_checker │ check_quiz:65 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:24:40,894 │ INFO     │ src.agent.agent │ process_request:145 │ Quiz generated successfully in 17337ms
+2026-07-20 07:33:10,555 │ INFO     │ __main__ │ create_app:21 │ ==================================================
+2026-07-20 07:33:10,556 │ INFO     │ __main__ │ create_app:22 │   Sports Quiz Agent Started
+2026-07-20 07:33:10,556 │ INFO     │ __main__ │ create_app:23 │   Model: gemini-3.5-flash
+2026-07-20 07:33:10,556 │ INFO     │ __main__ │ create_app:24 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:33:10,556 │ INFO     │ __main__ │ create_app:25 │ ==================================================
+2026-07-20 07:33:17,514 │ INFO     │ __main__ │ create_app:21 │ ==================================================
+2026-07-20 07:33:17,514 │ INFO     │ __main__ │ create_app:22 │   Sports Quiz Agent Started
+2026-07-20 07:33:17,514 │ INFO     │ __main__ │ create_app:23 │   Model: gemini-3.5-flash
+2026-07-20 07:33:17,514 │ INFO     │ __main__ │ create_app:24 │   ChromaDB: /Users/thoufeq/Desktop/Sports Quiz/chroma_db
+2026-07-20 07:33:17,514 │ INFO     │ __main__ │ create_app:25 │ ==================================================
+2026-07-20 07:35:28,575 │ INFO     │ src.api.routes │ generate_quiz:59 │ Quiz request: Formula 1 / Medium / 5 questions
+2026-07-20 07:35:28,679 │ INFO     │ src.agent.agent │ __init__:34 │ QuizAgent initialized with model: gemini-3.5-flash
+2026-07-20 07:35:28,679 │ INFO     │ src.retrieval.query_planner │ create_query_plan:44 │ Query Plan created: Retrieving Formula 1 knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:35:28,680 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:45 │   DB queries: ['Formula 1 history and origins', 'Formula 1 major tournaments and championships', 'Formula 1 legendary players and achievements', 'Formula 1 rules and regulations', 'Formula 1 records and statistics', 'Formula 1 historic matches and memorable moments', 'Formula 1 championship winners and results']
+2026-07-20 07:35:28,680 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:46 │   Web queries: ['Formula 1 world championship latest standings 2026', 'F1 latest race winner Grand Prix', 'Formula 1 driver constructor championship results', 'Formula 1 latest news and updates 2024 2025 2026', 'Formula 1 recent champions and winners', 'Formula 1 current world rankings']
+2026-07-20 07:35:28,680 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:18 │ Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-07-20 07:35:28,680 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:19 │ (First load downloads ~90MB model — subsequent loads are instant)
+2026-07-20 07:35:33,933 │ INFO     │ src.embeddings.embeddings │ get_embedding_model:29 │ ✓ Embedding model loaded: sentence-transformers/all-MiniLM-L6-v2 (384D vectors)
+2026-07-20 07:35:34,068 │ INFO     │ src.embeddings.ingest │ get_vector_store:147 │ Connected to ChromaDB: 40 chunks in 'sports_knowledge'
+2026-07-20 07:35:34,271 │ INFO     │ src.retrieval.retriever │ retrieve_context:53 │ Retrieved 5 unique chunks for 'Formula 1' from 7 queries
+2026-07-20 07:35:34,271 │ DEBUG    │ src.retrieval.cache │ put:30 │ Cache SET: formula 1:medium:chromadb (TTL: 300s)
+2026-07-20 07:35:39,610 │ INFO     │ src.retrieval.web_search │ search_web:52 │ Web search returned 6 results from 6 queries
+2026-07-20 07:35:39,611 │ DEBUG    │ src.retrieval.cache │ put:30 │ Cache SET: formula 1:medium:web (TTL: 300s)
+2026-07-20 07:35:39,611 │ INFO     │ src.retrieval.context_merger │ merge_contexts:45 │ Context merged: 5 historical + 6 web = 11 total chunks
+2026-07-20 07:35:39,612 │ INFO     │ src.retrieval.reranker │ rerank:25 │ Reranked 11 → 5 chunks
+2026-07-20 07:36:18,857 │ WARNING  │ src.agent.fact_checker │ check_quiz:53 │ Fact check FAILED: 5 issues found
+2026-07-20 07:36:18,857 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q1: Correct answer 'B' not in options
+2026-07-20 07:36:18,857 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q2: Correct answer 'C' not in options
+2026-07-20 07:36:18,857 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q3: Correct answer 'B' not in options
+2026-07-20 07:36:18,857 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q4: Correct answer 'B' not in options
+2026-07-20 07:36:18,858 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q5: Correct answer 'B' not in options
+2026-07-20 07:36:18,858 │ INFO     │ src.agent.agent │ _generate_with_retries:239 │ Retrying generation (attempt 2)
+2026-07-20 07:36:37,766 │ INFO     │ src.agent.fact_checker │ check_quiz:51 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:36:37,768 │ INFO     │ src.agent.agent │ process_request:116 │ Quiz generated successfully in 69089ms
+2026-07-20 07:39:46,336 │ INFO     │ src.api.routes │ generate_quiz:59 │ Quiz request: Football / Medium / 5 questions
+2026-07-20 07:39:46,337 │ INFO     │ src.retrieval.query_planner │ create_query_plan:44 │ Query Plan created: Retrieving Football knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:39:46,337 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:45 │   DB queries: ['Football history and origins', 'Football major tournaments and championships', 'Football legendary players and achievements', 'Football rules and regulations', 'Football records and statistics', 'Football historic matches and memorable moments', 'Football championship winners and results']
+2026-07-20 07:39:46,337 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:46 │   Web queries: ['latest FIFA world rankings 2026', "Ballon d'Or latest winner", 'UEFA Champions League latest winner', 'Football latest news and updates 2024 2025 2026', 'Football recent champions and winners', 'Football current world rankings']
+2026-07-20 07:39:46,465 │ INFO     │ src.retrieval.retriever │ retrieve_context:53 │ Retrieved 7 unique chunks for 'Football' from 7 queries
+2026-07-20 07:39:46,465 │ DEBUG    │ src.retrieval.cache │ put:30 │ Cache SET: football:medium:chromadb (TTL: 300s)
+2026-07-20 07:39:49,285 │ INFO     │ src.retrieval.web_search │ search_web:52 │ Web search returned 6 results from 6 queries
+2026-07-20 07:39:49,285 │ DEBUG    │ src.retrieval.cache │ put:30 │ Cache SET: football:medium:web (TTL: 300s)
+2026-07-20 07:39:49,286 │ INFO     │ src.retrieval.context_merger │ merge_contexts:45 │ Context merged: 7 historical + 6 web = 13 total chunks
+2026-07-20 07:39:49,286 │ INFO     │ src.retrieval.reranker │ rerank:25 │ Reranked 13 → 5 chunks
+2026-07-20 07:40:08,119 │ WARNING  │ src.agent.fact_checker │ check_quiz:53 │ Fact check FAILED: 5 issues found
+2026-07-20 07:40:08,120 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q1: Correct answer 'B' not in options
+2026-07-20 07:40:08,120 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q2: Correct answer 'C' not in options
+2026-07-20 07:40:08,120 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q3: Correct answer 'B' not in options
+2026-07-20 07:40:08,120 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q4: Correct answer 'C' not in options
+2026-07-20 07:40:08,120 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q5: Correct answer 'B' not in options
+2026-07-20 07:40:08,120 │ INFO     │ src.agent.agent │ _generate_with_retries:239 │ Retrying generation (attempt 2)
+2026-07-20 07:40:30,248 │ INFO     │ src.agent.fact_checker │ check_quiz:51 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:40:30,249 │ INFO     │ src.agent.agent │ process_request:116 │ Quiz generated successfully in 43913ms
+2026-07-20 07:42:31,872 │ INFO     │ src.api.routes │ generate_quiz:59 │ Quiz request: Football / Medium / 5 questions
+2026-07-20 07:42:31,873 │ INFO     │ src.retrieval.query_planner │ create_query_plan:44 │ Query Plan created: Retrieving Football knowledge: 7 ChromaDB queries + 6 web queries
+2026-07-20 07:42:31,874 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:45 │   DB queries: ['Football history and origins', 'Football major tournaments and championships', 'Football legendary players and achievements', 'Football rules and regulations', 'Football records and statistics', 'Football historic matches and memorable moments', 'Football championship winners and results']
+2026-07-20 07:42:31,874 │ DEBUG    │ src.retrieval.query_planner │ create_query_plan:46 │   Web queries: ['latest FIFA world rankings 2026', "Ballon d'Or latest winner", 'UEFA Champions League latest winner', 'Football latest news and updates 2024 2025 2026', 'Football recent champions and winners', 'Football current world rankings']
+2026-07-20 07:42:31,874 │ INFO     │ src.retrieval.cache │ get:18 │ Cache HIT: football:medium:chromadb
+2026-07-20 07:42:31,874 │ INFO     │ src.retrieval.cache │ get:18 │ Cache HIT: football:medium:web
+2026-07-20 07:42:31,874 │ INFO     │ src.retrieval.context_merger │ merge_contexts:45 │ Context merged: 7 historical + 6 web = 13 total chunks
+2026-07-20 07:42:31,875 │ INFO     │ src.retrieval.reranker │ rerank:25 │ Reranked 13 → 5 chunks
+2026-07-20 07:42:49,084 │ WARNING  │ src.agent.fact_checker │ check_quiz:53 │ Fact check FAILED: 5 issues found
+2026-07-20 07:42:49,085 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q1: Correct answer 'B' not in options
+2026-07-20 07:42:49,085 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q2: Correct answer 'C' not in options
+2026-07-20 07:42:49,085 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q3: Correct answer 'A' not in options
+2026-07-20 07:42:49,085 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q4: Correct answer 'C' not in options
+2026-07-20 07:42:49,085 │ WARNING  │ src.agent.fact_checker │ check_quiz:55 │   - Q5: Correct answer 'B' not in options
+2026-07-20 07:42:49,085 │ INFO     │ src.agent.agent │ _generate_with_retries:239 │ Retrying generation (attempt 2)
+2026-07-20 07:43:05,894 │ INFO     │ src.agent.fact_checker │ check_quiz:51 │ Fact check PASSED: 5 questions validated
+2026-07-20 07:43:05,895 │ INFO     │ src.agent.agent │ process_request:116 │ Quiz generated successfully in 34022ms
