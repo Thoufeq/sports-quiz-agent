@@ -72,9 +72,9 @@ function selectAnswer(btn, selected, correct, explanation) {
     }
     document.getElementById('next-btn').style.display = 'block';
     if (currentQuestionIndex === currentQuiz.questions.length - 1) {
-        document.getElementById('next-btn').textContent = 'ENVIAR';
+        document.getElementById('next-btn').textContent = 'Finish';
     } else {
-        document.getElementById('next-btn').textContent = 'ENVIAR';
+        document.getElementById('next-btn').textContent = 'Next';
     }
 }
 function nextQuestion() {
