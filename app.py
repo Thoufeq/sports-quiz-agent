@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from src.generator import compile_quiz_data
 from src.database import setup_and_populate_db
+import os
 import json
 
 app = Flask(__name__)
@@ -40,4 +41,5 @@ def generate():
         return jsonify({"success": False, "error": str(e)})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port, debug=False)

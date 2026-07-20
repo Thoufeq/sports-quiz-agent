@@ -6,6 +6,7 @@
 # --- Web Framework ---
 # Flask serves the dashboard UI and exposes the REST API endpoints.
 flask>=3.0.0
+gunicorn>=21.2.0
 
 # --- Environment Management ---
 # Loads .env file variables (like GOOGLE_API_KEY) into os.environ securely.
